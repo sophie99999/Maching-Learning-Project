@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Prediction models</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
+
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>    
+
+    <!-- Marker Cluster JS & CSS -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slide.css') }}" media="screen">
+
+  </head>
+
+  <body background="https://img.freepik.com/free-vector/banking-business-banner-finance-savings-abstract-silhouette-city-background_48369-11857.jpg?size=626&ext=jpg">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-xs-9 phone-nav">
+
+            </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                 <li><a href="/trend">Overall Trend Graph</a></li>
+                  <li><a href="/tech">Tech Industry</a></li>
+                  <li><a href="/models">Classification Models</a></li>
+                  <li><a href="/regression">Time Series Models</a></li>
+                  <li><a href="/sentiment">Sentiment Analysis</a></li>
+                </ul>
+              </li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/form">Contact us!</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-12">
+          <article class="description-content">
+            <h1 class="description-header">Timeseries Predictions</h1>
+            <hr class="description-hr"/>
+
+            <h2><strong>Apple, Inc. (AAPL)</strong></h2>    <!-- MIGHT NEED TO CHANGE THIS TITLE DEPENDS ON THE MODEL INSERTED-->
+            <h5>Five Year Data</h5>
+            <div id="five_regression_plot"></div>
+ <!-- Put an empty <p> here as to have some space on the webpage-->
+ <p>
+</p>
+            <div id="five_mvavg_plot"></div>
+            <h5>Ten-year data</h5>
+            <div id="ten_regression_plot"></div>
+            <p></p>
+            <div id="ten_mvavg_plot"></div>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <!-- <img src="{{url_for('static', filename='model_reports/SVM_10years_apple.jpg')}}" alt="SVM" class="center"> -->
+
+
+<!-- Put an empty <p> here as to have some space on the webpage-->
+               <p>Moving average is the average price of a stock over a set period of time. It’s a lagging indicator which means that we use past prices to predict the future price. It’s effectively showing the trend of a stock, since it smooths out short-term price fluctuations, it is unable to show the full extent of the changes in stock price, which means it fails to predict stock price.
+            </p>
+
+            <p>We extracted all the related information from field DATE, which includes: ‘Year’, ‘Month’, ‘Week’, ‘Day’, ‘Dayofweek’, ‘Dayofyear’, ‘Is_month_end’, ‘Is_month_start’, ‘Is_quarter_end’, ‘Is_quarter_start’, ‘Is_year_end’ and ‘Is_year_start’. Those features are input to your model and the output is adj_close price. The linear regression also indicates the trend of a stock, however, it fails to predict the price.
+              
+              </p>
+
+            
+            <p><strong class="disclaimer">DISCLAIMER:</strong> The current classification reports shown above for three models are for Apple stock only, different stocks yields different accuracy reports using the model. Due to the constraint of handling gigantic dataset in Jupyter Notebook, we
+              can only run the model on one specific stock at a time. In the future, our team will deploy Spark to better handle big datasets.   </p>
+
+<!-- Will need to replace the text in line 109 to Amy's description of the regression model-->
+            
+           
+          </article>
+        </div>
+
+      </section>
+
+      </div>
+    <!-- End of container -->
+  </body>
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        Sophie Wang, Devin Barger, Amy Wei, Mana Ghazanfari
+      </p>
+    </footer>
+    <!-- End of footer -->
+    <!-- Data file -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='regression.js') }}"></script> -->
+    <script type="text/javascript" src="../static/js/regression.js"></script>
+    <!-- API key -->
+    <!-- <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script> -->
+   
+   
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</html>

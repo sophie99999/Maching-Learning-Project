@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>SDAM Financial Laboratory, LLP| Global AI Financial Solutions</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slide.css') }}" media="screen">
+    <script src="{{ url_for('static', filename='js/accordion.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      
+      .flip-card {
+        background-color: transparent;
+        width: 300px;
+        height: 300px;
+        perspective: 1000px;
+      }
+      
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      }
+      
+      .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      }
+      
+      .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+      }
+      
+      .flip-card-front {
+        background-color: #bbb;
+        color: black;
+      }
+      
+      .flip-card-back {
+        background-color: #2980b9;
+        color: white;
+        transform: rotateY(180deg);
+      }
+      </style>
+    
+
+  </head>
+
+  <body background="https://img.freepik.com/free-vector/banking-business-banner-finance-savings-abstract-silhouette-city-background_48369-11857.jpg?size=626&ext=jpg">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-xs-9 phone-nav">
+              
+            </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                 <li><a href="/trend">Overall Trend Graph</a></li>
+                 <li><a href="/tech">Tech Industry</a></li>
+                  <li><a href="/models">Classification Models</a></li>
+                  <li><a href="/regression">Time Series Models</a></li>
+                  <li><a href="/sentiment">Sentiment Analysis</a></li>
+                </ul>
+              </li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/form">Contact us!</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of main container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-12">
+          <article class="description-content">
+            <h1 class="description-header">DAMS Financial Laboratory, LLP| Global AI Financial Solutions</h1>
+            <hr class="description-hr"/>
+            <img src="https://img.theculturetrip.com/768x432/wp-content/uploads/2019/01/fda03y.jpg" width="700" height="350" alt="NYC" class="center">
+            
+          </article>
+        </div>
+      </section>
+
+         <!-- Add an accordion container -->
+         <section class="row">
+        <div class="col-md-12">
+          <div class="bs-example">
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"><i class="fa fa-plus"></i> Who are we?</button>                  
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>We are a group of finance professionals who are based in NYC and have great passion in data science application in finance field. We have branch offices in London, Hong Kong, Tokyo. Stock market investing in complicated, especially when you don't know what, or when to invest. Our goal is to develop Machine Learning algorithms to better assist with investors' decision making. Currently we focus on technology industry silicon valley. We will run multiple models for each customer selected stock and implemenet the most accurate model. </p>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button type="button" class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour"><i class="fa fa-plus"></i> Meet the team!</button>                     
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                        <div class="card-body">
+                           <!-- first flip card-->
+                           
+                          <div class="col-md-6">
+                                 
+                                 <div class="flip-card">
+                                  <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                      <img src="{{url_for('static', filename='pictures/Sophie.jpg')}}" alt="Sophie" style="width:300px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                      <h1>Sophie Wang</h1> 
+                                      <p>Front-end Engineer and ML Specialist</p> 
+                                      <a style="font-weight:bold" href="https://www.linkedin.com/in/yuefei-sophie-wang-cpa-67339235/">
+                                        <font color="black">LinkedIn</font>
+                                        </a>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+                          </div>
+                        
+                          <!-- end of the first flip card-->
+
+                            <!-- second flip card-->
+                          <div class="col-md-6">
+                            <div class="flip-card">
+                             <div class="flip-card-inner">
+                               <div class="flip-card-front">
+                                 <img src="{{url_for('static', filename='pictures/Devin.jpg')}}" alt="Devin" style="width:300px;height:300px;">
+                               </div>
+                               <div class="flip-card-back">
+                                <h1>Devin Barger </h1> 
+                                <p>Full-Stack Engineer</p> 
+                                <a style="font-weight:bold" href="https://www.linkedin.com/in/devin-barger-192b1859/">
+                                  <font color="black">LinkedIn</font>
+                                  </a>
+                               </div>
+                             </div>
+                            </div>
+                     </div>
+                     <!-- end of second flip card-->
+
+                      <!-- Third flip card-->
+                      <div class="col-md-6">
+                        <div class="flip-card">
+                         <div class="flip-card-inner">
+                           <div class="flip-card-front">
+                             <img src="{{url_for('static', filename='pictures/Amy.jpg')}}" alt="Amy" style="width:300px;height:300px;">
+                           </div>
+                           <div class="flip-card-back">
+                            <h1>Amy Wei </h1> 
+                            <p>Regression Expert and Mathematician  </p> 
+                            <a style="font-weight:bold" href="https://github.com/amywei67">
+                              <font color="black">Github</font>
+                           </div>
+                         </div>
+                        </div>
+                 </div>
+                 <!-- end of third flip card-->
+
+                 <!-- fourth flip card-->
+                 <div class="col-md-6">
+                  <div class="flip-card">
+                   <div class="flip-card-inner">
+                     <div class="flip-card-front">
+                       <img src="{{url_for('static', filename='pictures/Mana.jpg')}}" alt="Mana" style="width:300px;height:300px;">
+                     </div>
+                     <div class="flip-card-back">
+                      <h1>Mana Ghazanfari
+                      </h1> 
+                      <p>Strategic Architect and Tableau Specialist</p> 
+                      <a style="font-weight:bold" href="https://www.linkedin.com/in/managhazanfari/">
+                        <font color="black">LinkedIn</font>
+                        </a>
+                     </div>
+                   </div>
+                  </div>
+           </div>
+            <!-- end of fouth flip card-->
+          </div>
+           </div>
+           
+
+          </section>        
+                           
+                       
+                        <!-- end of main container-->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+        </div>
+      </section>
+      
+      </section>
+
+      
+
+<!-- End of the accordion container -->
+
+<section>
+  <p>
+
+  </p>
+</section>
+
+    
+        
+        
+ 
+
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        Sophie Wang, Devin Barger, Amy Wei, Mana Ghazanfari
+      </p>
+    </footer>
+    <!-- End of footer -->
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  </body>
+
+</html>

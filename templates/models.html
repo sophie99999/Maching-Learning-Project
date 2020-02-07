@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Prediciton models</title>
+
+    <!-- Boostrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" media="screen">
+
+    <!-- Leaflet JS & CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- Marker Cluster JS & CSS -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+
+    <!-- Our own CSS stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/slide.css') }}" media="screen">
+
+  </head>
+
+  <body background="https://img.freepik.com/free-vector/banking-business-banner-finance-savings-abstract-silhouette-city-background_48369-11857.jpg?size=626&ext=jpg">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <div class="container-fluid navbar-custom">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="row">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle Navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="col-xs-9 phone-nav">
+
+            </div>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right navbar-right-custom">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Analysis <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                 <li><a href="/trend">Overall Trend Graph</a></li>
+                  <li><a href="/tech">Tech Industry</a></li>
+                  <li><a href="/models">Classification models</a></li>
+                  <li><a href="/regression">Time Series models</a></li>
+                  <li><a href="/sentiment">Sentiment Analysis</a></li>
+                  
+                  
+                </ul>
+              </li>
+              <li><a href="/">Home</a></li>
+              <li><a href="/form">Contact us!</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- End of navbar -->
+
+    <!-- Start of container -->
+    <div class="container">
+      <section class="row">
+        <div class="col-md-12">
+          <article class="description-content">
+            <h1 class="description-header">Prediciton models</h1>
+            <hr class="description-hr"/>
+
+            <h2><strong>SVM Model</strong></h2>
+            <h5>Five-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/SVM_5year_apple.jpg')}}" alt="SVM" class="center">
+
+            <p>
+            </p>
+
+
+            <h5>Ten-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/SVM_10years_apple.jpg')}}" alt="SVM" class="center">
+
+            <p>
+            </p>
+
+            <h2><strong>KNN Model</strong></h2>
+            <h5>Five-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/KNN_5years_apple.jpg')}}" alt="KNN" class="center">
+
+            <p>
+            </p>
+
+
+            <h5>Ten-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/KNN_10years_apple.jpg')}}" alt="KNN" class="center">
+
+            <p>
+            </p>
+
+            <h2><strong>Decision Tree and Random Forest Model</strong></h2>
+            <h5>Five-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/DT_RF_5years.jpg')}}" alt="DT" class="center">
+
+            <p>
+            </p>
+
+
+            <h5>Ten-year data</h5>
+            <!-- Note that when use Flask, we need to change the image path format and everything has to be under the folder "static" -->
+            <img src="{{url_for('static', filename='model_reports/DT_RF_10years.jpg')}}" alt="DT" class="center">
+
+            <p>Our team first labeled our original dataset with "buy" or "sell" actions for all the technology stocks from 2000 to 2018.
+             Secondly, we extracted the stock data for five years and ten years and then fed into three classification models: SVM, KNN, Decision Tree and Random Forest
+             respectively. We subsequently used Grid Search for hyperparameter tuning. The parameters we fed into the models are open price, close price, adjusted close price, daily low/high and trading volume and we expected the model to yield "buy" or "sell"
+             market signal. However using only these parameters is a naive way to predict stock performance since in reality stock investment in much more complicated. There are mainly four views on market performance prediction:
+
+            </p>
+
+            <p>
+              <strong><em class="words">1: Momentum: </em></strong>The best bet about market movements is the that they will continue in the same direction (behavioral finance)
+            </p>
+            <p>
+              <strong><em class="words">2: Mean Reversion:  </em></strong>Experienced investors, who have seen many market ups and downs, often take the view that the market will even out, over time. Historically, high market prices often discourage these investors from investing, while historically low prices may represent an opportunity.
+              The tendency of a variable, such as a stock price, to converge on an average value over time is called mean reversion. The phenomenon has been found in several economic indicators, which are useful to know, including exchange rates, gross domestic product (GDP) growth, interest rates, and unemployment. A mean reversion may also be responsible for business cycles.
+            </p>
+            <p>
+
+             <strong><em class="words"> 3: Martingales: </em></strong> Another possibility is that past returns just don't matter. In 1965, Paul Samuelson studied market returns and found that past pricing trends had no effect on future prices and reasoned that in an efficient market, there should be no such effect. His conclusion was that market prices are martingales.
+              A martingale is a mathematical series in which the best prediction for the next number is the current number. 
+              If stock returns are essentially random, the best prediction for tomorrow's market price is simply today's price, plus a very small increase. Rather than focusing on past trends and looking for possible momentum or mean reversion, investors should instead concentrate on managing the risk inherent in their volatile investments.
+            </p>
+            <p>
+              <strong><em class="words">4: The Search for Value: </em></strong> Value investors purchase stock cheaply and expect to be rewarded later. Their hope is that an inefficient market has underpriced the stock, but that the price will adjust over time. Those stocks are usually extra risky. 
+
+            </p>
+
+            <p>The bottom line: Even after decades of study by the brightest minds in finance, there are no solid answers. The only conclusion that can be drawn is that there may be some momentum effects, in the short term and a weak mean-reversion effect, in the long term.
+          </p>
+          <a href="https://www.investopedia.com/articles/07/mean_reversion_martingale.asp">Investopedia: 4 Ways to Predict Stock Performance</a>
+    
+          <p><strong class="disclaimer">DISCLAIMER:</strong> The current classification reports shown above for three models are for Apple stock only, different stocks yields different accuracy reports using these three models. Due to the constraint of handling gigantic dataset in Jupyter Notebook, we
+              can only run the three models on one specific stock at a time. In the future, our team will deploy Spark to better handle big datasets.   </p>
+
+
+            
+           
+          </article>
+        </div>
+
+      </section>
+
+      </div>
+    <!-- End of container -->
+  </body>
+    <!-- Start of footer -->
+    <footer class="footer navbar-fixed-bottom">
+      <div class="two-toned-footer-color"></div>
+      <p class="text-muted text-muted-footer text-center">
+        Sophie Wang, Devin Barger, Amy Wei, Mana Ghazanfari
+      </p>
+    </footer>
+    <!-- End of footer -->
+    <!-- Data file -->
+    <script type="text/javascript" src="{{ url_for('static', filename='data.json') }}"></script>
+    <!-- API key -->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/config.js') }}"></script>
+   
+   
+    <!-- jQuery CDN -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Bootstrap CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+</html>
