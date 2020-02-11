@@ -52,8 +52,9 @@ def sector():
 @app.route("/top_growth_2000_2018_api")
 def year_2000():
 	stock_growth_data = []
+	cols = ['data_2000', 'data_2018']
 
-	for collection in db.list_collection_names():
+	for collection in cols:
 		for row in db[collection].find({}, {'_id': 0}):
 			stock_growth_data.append(row)
 
